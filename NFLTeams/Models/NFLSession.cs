@@ -9,6 +9,7 @@ namespace NFLTeams.Models
         private const string CountKey = "teamcount";
         private const string ConfKey = "conf";
         private const string DivKey = "div";
+        private const string UserKey = "user";
 
         private ISession session { get; set; }
         public NFLSession(ISession session) {
@@ -34,6 +35,16 @@ namespace NFLTeams.Models
         public void RemoveMyTeams() {
             session.Remove(TeamsKey);
             session.Remove(CountKey);
+        }
+
+        public void SetUserName(string user)
+        {
+            session.SetString(UserKey, user);
+        }
+        public string GetUserName()
+        {
+            string Result = session.GetString(UserKey);
+            return Result;
         }
     }
 }

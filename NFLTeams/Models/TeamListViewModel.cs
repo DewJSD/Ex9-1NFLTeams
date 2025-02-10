@@ -5,6 +5,7 @@ namespace NFLTeams.Models
     public class TeamListViewModel : TeamViewModel
     {
         public List<Team> Teams { get; set; }
+        public string UserName { get; set; }
 
         // use full properties for Conferences and Divisions 
         // so can add 'All' item at beginning
@@ -35,5 +36,14 @@ namespace NFLTeams.Models
             c.ToLower() == ActiveConf.ToLower() ? "active" : "";
         public string CheckActiveDiv(string d) => 
             d.ToLower() == ActiveDiv.ToLower() ? "active" : "";
+        
+        public string getUserName()
+        {
+            return this.UserName;
+        }
+        public void setUserName(string name)
+        {
+            this.UserName = name;
+        }
     }
 }
